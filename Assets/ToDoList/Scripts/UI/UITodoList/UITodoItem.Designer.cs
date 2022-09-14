@@ -12,11 +12,13 @@ namespace QFramework.TodoList
 	{
 		[SerializeField] public UnityEngine.UI.Text Content;
 		[SerializeField] public UnityEngine.UI.Toggle Completed;
+		[SerializeField] public UnityEngine.UI.Button Button;
 
 		public void Clear()
 		{
 			Content = null;
 			Completed = null;
+			Button = null;
 		}
 
 		public override string ComponentName

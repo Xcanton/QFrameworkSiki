@@ -75,6 +75,7 @@
     <Compile Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scripts\System\GunSystem\GunInfo.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\11.SnakeGame\Codes\System\TimeSystem.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\11.SnakeGame\Codes\System\InputSystem.cs" />
+    <Compile Include="Assets\ToDoList\Scripts\UI\UITodoList\UITodoItem.Designer.cs" />
     <Compile Include="Assets\ToDoList\App.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\7.PointPointPoint\Scripts\Game\Game.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scripts\Command\ReloadCommand.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets\QFramework\Framework\Examples\11.SnakeGame\Codes\View\SnakeGame.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scripts\ViewController\Gameplay\NextLevel.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scripts\Command\HurtPlayerCommand.cs" />
+    <Compile Include="Assets\ToDoList\Scripts\UI\UICompletedList.cs" />
     <Compile Include="Assets\QFramework\Toolkits\UIKit\Example\3.Stack\UIKitStackExample.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\4.BindableProperty\BindablePropertyExample.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\11.SnakeGame\Codes\System\GridCreateSystem.cs" />
@@ -147,6 +149,7 @@
     <Compile Include="Assets\QFramework\Framework\Examples\2.TypeEventSystem\0.Basic\TypeEventSystemBasicExample.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scripts\Model\IPlayerModel.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\7.PointPointPoint\Scripts\System\IAchievementSystem.cs" />
+    <Compile Include="Assets\ToDoList\Scripts\UI\UICompletedList.Designer.cs" />
     <Compile Include="Assets\QFramework\Toolkits\ResKit\Example\8.CustomResExample\CustomResExample.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scripts\ViewController\Gameplay\BulletPickItem.cs" />
     <Compile Include="Assets\QFramework\Toolkits\UIKit\Example\11.ManagerOfManagersExample\EnemyEvent.cs" />
@@ -158,6 +161,7 @@
     <Compile Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scripts\Utility\RectHelper.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scripts\ViewController\Gameplay\Bullet.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\7.PointPointPoint\Scripts\UI\GameStartPanel.cs" />
+    <Compile Include="Assets\ToDoList\Scripts\UI\UITodoList\UITodoItem.cs" />
     <Compile Include="Assets\QFramework\Toolkits\UIKit\Example\4.MultiPanelExample\Scripts\UI\UIMultiPanel.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scripts\Command\ShootCommand.cs" />
     <Compile Include="Assets\QFramework\Toolkits\UIKit\Example\3.Stack\Scripts\UI\UIStackPanel1.Designer.cs" />
@@ -177,10 +181,8 @@
     <Compile Include="Assets\QFramework\Toolkits\UIKit\Example\0.Basic\Scripts\UI\UIBasicPanel\UIAboutSubPanel.Designer.cs" />
     <Compile Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scripts\System\GunSystem\IGunSystem.cs" />
     <Compile Include="Assets\QFramework\Toolkits\SupportOldQF\AudioKitWithResKitInit.cs" />
-    <Compile Include="Assets\ToDoList\Scripts\UI\UITodoList\UITodoItem.cs" />
-    <Compile Include="Assets\ToDoList\Scripts\UI\UITodoList\UITodoItem.Designer.cs" />
-    <Compile Include="Assets\ToDoList\Scripts\UI\UICompletedList.cs" />
-    <Compile Include="Assets\ToDoList\Scripts\UI\UICompletedList.Designer.cs" />
+    <Compile Include="Assets\ToDoList\Scripts\UI\UICompletedList\UICompletedTodoItem.cs" />
+    <Compile Include="Assets\ToDoList\Scripts\UI\UICompletedList\UICompletedTodoItem.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\QFramework\Framework\Examples\10.ShootingEditor2D\Scenes\please add these scenes to Build Setings.txt" />

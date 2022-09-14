@@ -21,14 +21,16 @@ namespace QFramework.TodoList
     public class App : MonoBehaviour
     {
 
-        public TodoList Model = new TodoList();
+        //public TodoList Model = new TodoList();
+        TodoList mModel;
 
         // Start is called before the first frame update
         void Start()
         {
+            mModel =  TodoList.Load();
             ResMgr.Init();
 
-            UIKit.OpenPanel<UITodoList>(new UITodoListData() { Model = Model }) ;
+            UIKit.OpenPanel<UITodoList>(new UITodoListData() { Model = mModel }) ;
         }
 
         // Update is called once per frame
@@ -36,16 +38,37 @@ namespace QFramework.TodoList
         {
 
         }
+
+        private void OnApplicationQuit()
+        {
+            mModel.Save();
+        }
     }
 
+    [System.Serializable]
     public class TodoList
     {
-        public List<TodoItem> mTodoItems = new List<TodoItem>()
+        public List<TodoItem> mTodoItems = new List<TodoItem>();
+
+        public static TodoList Load()
         {
-            new TodoItem() {Completed = false, Content = "ÒªÂò²Ë" },
-            new TodoItem() {Completed = false, Content = "»»µçÄÔ" },
-            new TodoItem() {Completed = false, Content = "Ñ§Ï°" },
-        };
+            var jsonContent = PlayerPrefs.GetString("TodoListData", string.Empty);
+
+            if (jsonContent.IsNullOrEmpty())
+            {
+                return new TodoList();
+            }
+            else
+            {
+                return JsonUtility.FromJson<TodoList>(jsonContent);
+            }
+        }
+
+        public void Save()
+        {
+            //JsonUtility.ToJson(this);
+            PlayerPrefs.SetString("TodoListData", JsonUtility.ToJson(this));
+        }
     }
 
     public class TodoItem

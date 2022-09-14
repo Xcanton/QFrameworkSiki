@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using static QFramework.TodoList.UITodoList;
 
 namespace QFramework.TodoList
 {
@@ -25,6 +26,11 @@ namespace QFramework.TodoList
 			{
 				mModel.Completed = on;
 				SendEvent(UITodoListEvent.OnDataChange);
+			});
+
+			Button.onClick.AddListener(() =>
+			{
+				SendMsg(new OnTodoItemSelectedMsg(mModel));
 			});
 		}
 

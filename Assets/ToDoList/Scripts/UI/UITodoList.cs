@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using QFramework;
 using System.Text;
 using System.Linq;
+using static QFramework.TodoList.UITodoList;
 
 namespace QFramework.TodoList
 {
@@ -11,12 +12,15 @@ namespace QFramework.TodoList
 		// TODO: Query Mgr's Data
 
 		public TodoList Model;
+
+		public UITodoListState State = UITodoListState.Create;
 	}
 
 	public enum UITodoListEvent
 	{
 		start = QMgrID.UI,
 		OnDataChange,
+		OnTodoItemSelected,
 		End
 	} 
 
@@ -34,16 +38,21 @@ namespace QFramework.TodoList
             OnDataChanged();
 
             RegisterEvent(UITodoListEvent.OnDataChange);
+			RegisterEvent(UITodoListEvent.OnTodoItemSelected);
 
 			//Text.text = contentText.ToString();
 
 			InputField.onEndEdit.AddListener(content =>
 			{
-				mData.Model.mTodoItems.Add(new TodoItem()
+				if (Input.GetKeyDown(KeyCode.Return))
 				{
-					Completed = false,
-					Content = content
-				});
+					mData.Model.mTodoItems.Add(new TodoItem()
+					{
+						Completed = false,
+						Content = content
+					});
+				}
+				
 
 				InputField.text = string.Empty;
 				OnDataChanged();
@@ -52,10 +61,28 @@ namespace QFramework.TodoList
 			BtnCompletedList.onClick.AddListener(() =>
 			{
 				CloseSelf();
-				UIKit.OpenPanel<UICompletedList>();
+				UIKit.OpenPanel<UICompletedList>(new UICompletedListData()
+				{
+					Model = mData.Model,
+				});
 			});
 		}
 
+		public enum UITodoListState
+		{
+			Create,
+			Modify,
+		}
+
+		public class OnTodoItemSelectedMsg : QMsg
+		{
+			public TodoItem ItemData;
+
+			public OnTodoItemSelectedMsg(TodoItem itemData): base((int)UITodoListEvent.OnTodoItemSelected)
+			{
+                ItemData = itemData;
+			}
+		}
         protected override void ProcessMsg(int eventId, QMsg msg)
 		{
 			//base.ProcessMsg(eventId, msg);
@@ -63,6 +90,15 @@ namespace QFramework.TodoList
 			{
 				OnDataChanged();
 			}
+			else if (eventId == (int)UITodoListEvent.OnTodoItemSelected)
+			{
+				var selectMsg = msg as OnTodoItemSelectedMsg;
+
+				//Debug.Log(selectMsg.ItemData.Content);
+				InputField.text = selectMsg.ItemData.Content;
+				mData.State = UITodoListState.Modify;
+
+            }
 		}
 
 		void OnDataChanged()

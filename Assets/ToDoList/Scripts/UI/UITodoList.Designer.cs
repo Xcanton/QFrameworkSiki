@@ -5,7 +5,7 @@ using QFramework;
 
 namespace QFramework.TodoList
 {
-	// Generate Id:7851355c-7e10-475d-896b-1a1a3258a8b9
+	// Generate Id:ebdfb094-5b16-4a93-a8d2-9c4b52ebaa4f
 	public partial class UITodoList
 	{
 		public const string Name = "UITodoList";
